@@ -7,10 +7,10 @@ import ConfigParser
 
 #Set variables
 Config.read('/path/to/conf')
-username = Config.get('credentials', 'username')
-password = Config.get('credentials', 'password')
-hostname = Config.get('database', 'host')
-dbname = Config.get('database', 'dbname')
+username = Config.get('Credentials', 'username')
+password = Config.get('Credentials', 'password')
+hostname = Config.get('Database', 'host')
+dbname = Config.get('Database', 'dbname')
 url = 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
 GeUpdated = False
 
