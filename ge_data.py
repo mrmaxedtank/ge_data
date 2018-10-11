@@ -3,8 +3,14 @@ import string
 import json
 import pg
 import urllib
+import ConfigParser
 
 #Set variables
+Config.read('/path/to/conf')
+username = Config.get('credentials', 'username')
+password = Config.get('credentials', 'password')
+hostname = Config.get('database', 'host')
+dbname = Config.get('database', 'dbname')
 url = 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
 GeUpdated = False
 
@@ -14,7 +20,7 @@ response = urllib.urlopen(json_url)
 osb_data = json.load(response.read())
 
 #Fetch item list
-connection = pg.DB(host=<hostname>, user=<username>, passwd=<password>, dbname=<dbname>)
+connection = pg.DB(host=hostname, user=username, passwd=password, dbname=dbname)
 items = connection.query("select item_id from items")
 
 for item_id in items:
