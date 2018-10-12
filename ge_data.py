@@ -16,8 +16,8 @@ GeUpdated = False
 
 #Fetch osbuddy summary
 JsonUrl = 'https://rsbuddy.com/exchange/summary.json'
-Response = urllib.urlopen(JsonUrl)
-OsbData = json.load(response.read())
+Response = requests.get(JsonUrl).text
+OsbData = json.load(Response)
 
 #Fetch item list
 Connection = pg.DB(host=Hostname, user=Username, passwd=Password, dbname=Dbname)
@@ -32,9 +32,10 @@ for ItemId in Items:
     #If different; register new price in new record and set GeUpdated to True
     #If equal; next item    
     OfficialLastPrice = connection.execute('select limit 1 price from records where source = ? and item_id = ? order by record_datetime desc', ('osbuddy', ItemId))
-    OfficialNewPrice = 
+    OfficialNewPrice = print(OsbData[ItemId]['overall_average']
     if OfficialLastPrice <> OfficialNewPrice
         #Insert record into database
+        
         GeUpdated = True
     else
     break
