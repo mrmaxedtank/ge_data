@@ -37,7 +37,7 @@ for ItemId in Items:
     OfficialNewPrice = 
     if OfficialLastPrice <> OfficialNewPrice
         #Insert record into database
-        #Todo: Check if ID works like this, create variable for timestamp of "now". Create and test this before taking care of osbuddy segment.
+        #Todo: In order to make the id work, change database configuration for column to "serial". Create and test this before taking care of osbuddy segment.
         Ts = time.time()
         St = datetime.datetime.fromtimestamp(Ts).strftime('%Y-%m-%d %H:%M:%S')
         connection.execute('INSERT INTO records (id, record_datetime, item_id, price, source' VALUES (?, ?, ?, ?, ?)', ('', St, ItemId, OfficialNewPrice, 'osrs'))
