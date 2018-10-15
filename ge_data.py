@@ -4,6 +4,8 @@ import json
 import pg
 import urllib
 import ConfigParser
+import time
+import datetime
 
 #Set variables
 Config.read('/path/to/conf')
@@ -36,7 +38,9 @@ for ItemId in Items:
     if OfficialLastPrice <> OfficialNewPrice
         #Insert record into database
         #Todo: Check if ID works like this, create variable for timestamp of "now". Create and test this before taking care of osbuddy segment.
-        connection.execute('INSERT INTO records (id, record_datetime, item_id, price, source' VALUES (?, ?, ?, ?, ?)', ('', '', ItemId, OfficialNewPrice, 'osrs'))
+        Ts = time.time()
+        St = datetime.datetime.fromtimestamp(Ts).strftime('%Y-%m-%d %H:%M:%S')
+        connection.execute('INSERT INTO records (id, record_datetime, item_id, price, source' VALUES (?, ?, ?, ?, ?)', ('', St, ItemId, OfficialNewPrice, 'osrs'))
         GeUpdated = True
     else
         #Add logging for else?
@@ -48,7 +52,9 @@ for ItemId in Items:
     #Compare osbuddy price to last osbuddy price
     if OsbuddyLastPrice <> Osbuddy
     #If different; register new price
-    #If equal; next    
+    #If equal; next
+        Ts = time.time()
+        St = datetime.datetime.fromtimestamp(Ts).strftime('%Y-%m-%d %H:%M:%S')
     else
         #Add logging for else?
     break
