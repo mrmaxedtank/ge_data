@@ -6,6 +6,7 @@ import urllib
 import ConfigParser
 import time
 import datetime
+import os
 
 #Set variables
 Config.read('/path/to/conf')
@@ -15,6 +16,7 @@ Hostname = Config.get('Database', 'host')
 Dbname = Config.get('Database', 'dbname')
 Url = 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
 GeUpdated = False
+Email = 'example@example.org'
 
 #Fetch osbuddy summary
 JsonUrl = 'https://rsbuddy.com/exchange/summary.json'
@@ -48,13 +50,14 @@ for ItemId in Items:
     
     #Below, take right element from "osb_data". item_id can be used to identify the right element.
     OsbuddyLastPrice = connection.execute('select limit 1 price from records where source = ? and item_id = ? order by record_datetime desc', ('osbuddy', ItemId))
-    Osbuddy = print(OsbData[ItemId]['overall_average'])
+    OsbuddyNewPrice = print(OsbData[ItemId]['overall_average'])
     #Compare osbuddy price to last osbuddy price
-    if OsbuddyLastPrice <> Osbuddy
+    if OsbuddyLastPrice <> OsbuddyNewPrice
     #If different; register new price
     #If equal; next
         Ts = time.time()
         St = datetime.datetime.fromtimestamp(Ts).strftime('%Y-%m-%d %H:%M:%S')
+        connection.execute('INSERT INTO records (id, record_datetime, price, source' VALUES (?, ?, ?, ?, ?)', ('', St, ItemId, OsbuddyNewPrice, 'osbuddy'))
     else
         #Add logging for else?
     break
@@ -62,7 +65,7 @@ break
 
 if GeUpdated == True
     #Create notification
-    #Create record in third table; "updates"?
+    #os.popen("echo 'GE is geupdate!' | mail -s 'GE is geupdate!' Email")
 end
 
 Connection.close()
