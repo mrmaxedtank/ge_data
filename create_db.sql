@@ -1,5 +1,6 @@
 -- TODO:
--- *carefully review configuration.
+-- carefully review configuration.
+-- fix key generation for records ("serial")
 --
 -- PostgreSQL database dump
 --
