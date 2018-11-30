@@ -1,3 +1,11 @@
+#TODO:
+#   *Add comments
+#   *Finish missing branches of if-else statements
+#       *Subactivity: figure out how to get script to utilise command line
+#   *Add (optional) logging
+#   *Test and debug
+#   *(Eventually) refine
+
 import requests
 import string
 import json
