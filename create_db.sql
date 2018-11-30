@@ -1,3 +1,5 @@
+-- TODO:
+-- *carefully review configuration.
 --
 -- PostgreSQL database dump
 --
