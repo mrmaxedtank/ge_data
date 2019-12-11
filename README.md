@@ -3,9 +3,9 @@ A simple tool to check both the official GE database managed by Jagex and the Ex
 
 **Note: I'm a hobbyist and for that reason all content in this repository is potentially lacking in quality.**
 
-~~## To do list:
+~~ ## To do list:
 Abandoned project due to reliance on discontinued API
 
-~~## Installation
+~~ ## Installation
 
-~~## Usage
+~~ ## Usage
