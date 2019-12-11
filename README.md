@@ -3,15 +3,9 @@ A simple tool to check both the official GE database managed by Jagex and the Ex
 
 **Note: I'm a hobbyist and for that reason all content in this repository is potentially lacking in quality.**
 
-## To do list:
-* Check and improve database generation script
-* Finish ge_data.py by taking care of the remaining items:
-  * Finish last pieces of the functions
-  * Test and debug
-  * Add logging
-  * Add more comment to code
-* Finish (this) documentation
+~~## To do list:
+Abandoned project due to reliance on discontinued API
 
-## Installation
+~~## Installation
 
-## Usage
+~~## Usage
